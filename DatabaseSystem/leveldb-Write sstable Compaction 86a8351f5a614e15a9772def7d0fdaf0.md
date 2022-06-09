@@ -1,4 +1,4 @@
-# leveldb-Write、sstable、Compaction
+# leveldb-Write|sstable|Compaction
 
 Created: June 5, 2022 4:25 PM
 
@@ -57,7 +57,7 @@ Created: June 5, 2022 4:25 PM
 
 ## sstable——物理结构
 
-![Untitled](leveldb-Write%E3%80%81sstable%E3%80%81Compaction%2086a8351f5a614e15a9772def7d0fdaf0/Untitled.png)
+![Untitled](leveldb-Write%20sstable%20Compaction%2086a8351f5a614e15a9772def7d0fdaf0/Untitled.png)
 
 - 每个文件中按照4KB对齐，拆分为若干个block，除了文件末尾的footer
     - 每个block除了data 还包括1字节压缩类型以及4字节crc校验码
@@ -71,7 +71,7 @@ Created: June 5, 2022 4:25 PM
 
 ## sstable——逻辑结构
 
-![Untitled](leveldb-Write%E3%80%81sstable%E3%80%81Compaction%2086a8351f5a614e15a9772def7d0fdaf0/Untitled%201.png)
+![Untitled](leveldb-Write%20sstable%20Compaction%2086a8351f5a614e15a9772def7d0fdaf0/Untitled%201.png)
 
 - 每个sstable中，由五部分组成：1个footer、1个数据索引、n个数据、1个过滤器、1个过滤器索引
 - handle = offset ＋ size
@@ -87,7 +87,7 @@ Created: June 5, 2022 4:25 PM
 
 ### metaindex block 与 meta block【filter block】
 
-![Untitled](leveldb-Write%E3%80%81sstable%E3%80%81Compaction%2086a8351f5a614e15a9772def7d0fdaf0/Untitled%202.png)
+![Untitled](leveldb-Write%20sstable%20Compaction%2086a8351f5a614e15a9772def7d0fdaf0/Untitled%202.png)
 
 - metaindex block的物理结构与 data block 和 index block一样
     - key-value，key【filter block name】 value【handle】
